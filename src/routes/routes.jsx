@@ -5,6 +5,7 @@ import { Contact } from "../pages/Contact/Contact";
 import { Jobs } from "../pages/Jobs/Jobs";
 import { About } from "../pages/About/About";
 import { SignUp } from "../pages/SignUp/SignUp";
+import { AddNewJob } from "../pages/AddNewJob/AddNewJob";
 
 export const routes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const routes = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "addNewJob",
+        element: <AddNewJob></AddNewJob>,
       },
       {
         path: "/contact",
