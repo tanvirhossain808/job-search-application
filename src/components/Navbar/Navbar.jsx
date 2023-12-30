@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../../assets/logo/logo.png";
 
 export const Navbar = () => {
   return (
@@ -8,14 +9,18 @@ export const Navbar = () => {
     <>
       <nav>
         <ul>
+          <li>
+            <img src={logo} alt="" />
+          </li>
           <NavLink to="/">HOME</NavLink>
 
-          <NavLink>JOBS</NavLink>
-          <NavLink>ABOUT</NavLink>
-          <NavLink to="/contact">CONTACT</NavLink>
-          <NavLink>FAVORITE</NavLink>
-          <NavLink>SIGN UP</NavLink>
-          <NavLink>SIGN OUt</NavLink>
+          <NavLink to="jobs">JOBS</NavLink>
+          <NavLink to="abouts">ABOUT</NavLink>
+          <NavLink to="contact">CONTACT</NavLink>
+          <NavLink to="favorite">FAVORITE</NavLink>
+          <NavLink to="signup">SIGN UP</NavLink>
+          <NavLink to="SIGNIN">SIGNIN</NavLink>
+          <NavLink to="SIGNOUT">SIGN OUT</NavLink>
         </ul>
       </nav>
     </>

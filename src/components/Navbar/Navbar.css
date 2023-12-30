@@ -1,23 +1,29 @@
 nav {
-  height: 30px;
-  /* background-color: black; */
+  height: 80px;
+  background-color: #f2984abb;
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.753);
 }
 nav ul {
+  height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 nav ul a {
   text-decoration: none;
 }
 nav .active {
-  color: orange;
+  color: white;
 }
 
 nav a.pending {
   color: red;
 }
 
-nav a:active {
-  /* background-color: black; */
-  color: orange;
+nav a {
+  color: black;
+}
+li img {
+  height: 30px;
+  width: 150px;
 }
