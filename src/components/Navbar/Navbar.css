@@ -1,8 +1,12 @@
 nav {
   height: 80px;
-  background-color: #103778;
+  /* background-color: #103778; */
   box-shadow: 0 0 7px 1px gray;
   /* margin-bottom: 20px; */
+  color: black !important;
+}
+nav .logo {
+  background-color: black;
 }
 nav ul {
   height: 100%;
@@ -14,15 +18,42 @@ nav ul a {
   text-decoration: none;
 }
 nav .active {
-  color: orange;
+  /* color: orange; */
+  font-weight: 800;
+  border-bottom: 1px solid black;
 }
 
 nav a.pending {
   color: red;
 }
+nav ul li {
+  position: relative;
+  transition: ease-in 3s;
+  &::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    width: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: white; */
+    /* color: red; */
+    background-color: black;
+    transition: ease-in-out 0.3s;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+
+      /* right: 100%; */
+    }
+  }
+}
+nav ul li:after {
+}
 
 nav a {
-  color: white;
+  color: black;
 }
 li img {
   height: 30px;

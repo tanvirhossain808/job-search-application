@@ -35,6 +35,7 @@ export const Home = () => {
                     placeholder="Search Location"
                     name="location "
                   />
+                 <button className="searchBtn">Search</button>
                 </div>
               </div>
             </div>
