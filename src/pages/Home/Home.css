@@ -1,16 +1,3 @@
-.landingContainer img {
-}
-/* .landingContainer {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./../../assets/banner/Home-1.jpg");
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent;
-} */
 .homeContainer {
   color: black;
 }
@@ -63,11 +50,12 @@
   position: relative;
   max-height: 600px;
 }
-.homeContainer button {
+.searchByLocation button {
   position: absolute;
   background-color: red;
   right: 0;
   top: 0;
+  border: none;
   width: 6rem;
   border: none;
   border-radius: 20px;
@@ -78,5 +66,60 @@
   transform: 0.4s;
   &:active {
     transform: scale(0.8);
+  }
+}
+.explorJobPageBtn button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 2rem;
+  background-color: #10b981;
+  border-radius: 20px;
+  border: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .heroIntro {
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: flex-start;
+  }
+  .heroIntro h1 {
+    margin: 0;
+  }
+  .hero img {
+    width: 100%;
+  }
+  .heroSearchInput {
+    background: #fff;
+    padding: 0px;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  .searchByLocation button {
+  }
+  .searchByLocation,
+  .searchBYKeyWord {
+    border: none;
+    padding: 0;
+  }
+  .searchBYKeyWord {
+    border-bottom: 2px solid #10b981;
+  }
+  .heroIntro h1 span {
+    font-size: 2rem;
+  }
+  .heroIntro h1 {
+    font-size: 3rem;
+  }
+  .heroIntro h2 {
+    font-size: 2rem;
+  }
+  .searchByLocation button {
+    padding: 0;
+    width: 50px;
+    border-radius: 5px;
   }
 }

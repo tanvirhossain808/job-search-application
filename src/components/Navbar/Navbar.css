@@ -1,5 +1,6 @@
 nav {
   height: 80px;
+  width: 100%;
   /* background-color: #103778; */
   box-shadow: 0 0 7px 1px gray;
   /* margin-bottom: 20px; */
@@ -7,11 +8,13 @@ nav {
 }
 nav .logo {
   background-color: black;
+  margin-left: 10px;
 }
 nav ul {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 200px;
   align-items: center;
 }
 nav ul a {
@@ -44,18 +47,95 @@ nav ul li {
   &:hover {
     &::after {
       width: 100%;
-
-      /* right: 100%; */
     }
   }
 }
 nav ul li:after {
 }
+.menuShowBtn {
+  display: none;
+}
 
 nav a {
   color: black;
 }
-li img {
+.navLInksBtn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+ul .logo img {
   height: 30px;
   width: 150px;
+}
+
+@media only screen and (max-width: 920px) {
+  .navLInksBtn {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+
+    flex-direction: column;
+  }
+  nav {
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+  nav ul {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    /* gap: 100%; */
+    width: 100%;
+    justify-content: space-around;
+    /* flex-direction: column; */
+  }
+  nav ul {
+    position: relative;
+    height: 100%;
+    color: white;
+  }
+  nav ul li {
+    color: white;
+  }
+  .logoFeild,
+  .navLInksBtn {
+    margin: 0;
+  }
+  nav a {
+    color: white;
+  }
+
+  .navLInksBtn {
+    color: white;
+    transition: 1s ease-in-out;
+    margin-top: -6000px;
+    background-color: rgba(202, 151, 151, 0.226);
+    position: absolute;
+    top: 0;
+  }
+  .showNav {
+    position: absolute;
+    right: 0;
+    top: 6000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* width: 200%; */
+    transition: 1s ease-in-out;
+    /* margin-bottom: 40px; */
+    height: 200px;
+    width: 100%;
+  }
+  .menuShowBtn {
+    display: block;
+  }
+}
+ul .logo img {
+  width: 130px;
+}
+.menubar {
+  width: 100%;
 }
