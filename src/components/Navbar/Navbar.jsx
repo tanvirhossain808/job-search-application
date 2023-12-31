@@ -43,7 +43,7 @@ export const Navbar = () => {
               <NavLink to="SIGNOUT">SIGN OUT</NavLink>
             </li>
             {showMenue ? (
-              <li className="menuShowBtn" onClick={() => setShowMenu(false)}>
+              <li className="menuShowBtn menuShowBtn1" onClick={() => setShowMenu(false)}>
                 <IoCloseSharp />
               </li>
             ) : (
