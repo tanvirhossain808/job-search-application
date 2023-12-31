@@ -1,9 +1,49 @@
-import { Navbar } from "../../components/Navbar/Navbar";
+import "./Home.css";
+import bannerPic from "./../../assets/banner/bnr.png";
+import { CiSearch } from "react-icons/ci";
+import { CiLocationOn } from "react-icons/ci";
 
 export const Home = () => {
   return (
     <>
-      hey
+      <div className="homeContainer">
+        <div className="landingContainer">
+          <div className="heroIntro">
+            <div className="heroText">
+              <h1>
+                Your Dream <br />
+                <span>Job Is Waiting.</span>{" "}
+              </h1>
+              <h2>10000+ Jobs</h2>
+              <div className="heroSearchInput">
+                <div className="searchBYKeyWord">
+                  <span>
+                    <CiSearch size={"30px"} color="#10B981" />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Enter job title, keyword"
+                    name="jobTitle"
+                  />
+                </div>
+                <div className="searchByLocation">
+                  <span>
+                    <CiLocationOn size={"30px"} color="#10B981" />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Search Location"
+                    name="location "
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="heroImg">
+              <img src={bannerPic} alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

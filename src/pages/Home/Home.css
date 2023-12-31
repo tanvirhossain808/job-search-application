@@ -1,0 +1,65 @@
+.landingContainer img {
+}
+/* .landingContainer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./../../assets/banner/Home-1.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+} */
+.homeContainer {
+  color: black;
+}
+.heroIntro {
+  margin-top: 40px;
+  display: flex;
+}
+.heroIntro h1 {
+  margin-top: 50px;
+  font-size: 96px;
+  font-weight: 600px;
+}
+.heroIntro h1 span {
+  color: #10b981;
+}
+.heroIntro h2 {
+  font-size: 64px;
+}
+.searchByLocation,
+.searchBYKeyWord {
+  /* width: 100%; */
+  gap: 20px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-evenly;
+
+  padding: 5px;
+}
+.searchByLocation input,
+.searchBYKeyWord input {
+  border: none;
+}
+.searchByLocation {
+  border-left: 2px solid #10b981;
+}
+.searchBYKeyWord {
+  border-radius: 2px solid #10b981;
+}
+.heroSearchInput {
+  border-radius: 20px;
+  border: 2px solid #10b981;
+  background: #fff;
+  box-shadow: 0px 1px 22px 1px rgba(69, 64, 219, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 742px;
+  margin-top: 20px;
+  box-sizing: content-box;
+
+  max-height: 600px;
+}
