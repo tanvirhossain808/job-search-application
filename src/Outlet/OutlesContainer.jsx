@@ -1,8 +1,9 @@
 import { Navbar } from "../components/Navbar/Navbar";
 
 import { Outlet } from "react-router-dom";
-import { Home } from "../pages/Home/Home";
 import { useEffect } from "react";
+import { Footer } from "../components/Footer/Footer";
+import './Outlet.css'
 
 export const OutletContainer = () => {
   useEffect(() => {
@@ -13,7 +14,11 @@ export const OutletContainer = () => {
   return (
     <>
       <Navbar />
+      <div className="outLet">
+
       <Outlet />
+      </div>
+      <Footer></Footer>
     </>
   );
 };

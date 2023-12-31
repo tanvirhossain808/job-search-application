@@ -1,0 +1,42 @@
+.footer {
+  background-color: rgba(0, 0, 0, 0.911);
+  color: white;
+}
+.footer li a {
+  text-decoration: none;
+  color: rgba(165, 42, 42, 0.808);
+}
+.footerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.aboutUfInfo ul li {
+  border-bottom: 1px solid white;
+}
+.aboutUfInfo ul a {
+  color: white;
+  background-color: red;
+}
+.messageSends {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+}
+.messageSends input {
+  border: none;
+}
+.messageSends input {
+  border: none;
+  padding: 3px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+button {
+  cursor: pointer;
+}
+.messageSends button {
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
