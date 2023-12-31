@@ -125,3 +125,16 @@
     border-radius: 5px;
   }
 }
+
+.exploreJobs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px 0;
+  max-height: 877px;
+  width: 100%;
+  background: rgba(96, 238, 191, 0.5);
+}
+.jobCategory {
+  width: 274px;
+  height: 214px;
+}
