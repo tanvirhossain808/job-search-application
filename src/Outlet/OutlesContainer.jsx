@@ -1,23 +1,19 @@
 import { Navbar } from "../components/Navbar/Navbar";
 
 import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
 import { Footer } from "../components/Footer/Footer";
-import './Outlet.css'
+import "./Outlet.css";
+import { GlobalContext } from "../GlobalContext/GlobalContext";
 
 export const OutletContainer = () => {
-  useEffect(() => {
-    fetch("http://localhost:9000/jobs")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
   return (
     <>
       <Navbar />
-      <div className="outLet">
-
-      <Outlet />
-      </div>
+      <GlobalContext>
+        <div className="outLet">
+          <Outlet />
+        </div>
+      </GlobalContext>
       <Footer></Footer>
     </>
   );

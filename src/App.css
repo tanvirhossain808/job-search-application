@@ -5,6 +5,8 @@
   list-style-type: none;
   max-width: 1440px;
   margin: 0 auto;
+  
+  /* display: none; */
   /* background-color: #f2984abb; */
 }
 button {

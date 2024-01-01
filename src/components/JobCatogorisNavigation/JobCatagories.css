@@ -1,0 +1,36 @@
+/* 
+this componet style added to home.css
+*/
+.explorejobsCategory {
+  background-color: rgba(96, 238, 191, 0.5);
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-right: 50px;
+  /* width: ; */
+}
+.jobCategory {
+  cursor: pointer;
+}
+.catogoresText {
+  color: #10b981;
+}
+.catogoresHeaderAndNavigate {
+  /* margin: 0; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.categoriesNaviteBtnToAll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  &:active {
+    color: blue;
+  }
+}
+.catogoresHeaderAndNavigate h2,
+.catogoresHeaderAndNavigate span {
+  margin: 0;
+}
