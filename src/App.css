@@ -5,12 +5,13 @@
   list-style-type: none;
   max-width: 1440px;
   margin: 0 auto;
-  
+
   /* display: none; */
   /* background-color: #f2984abb; */
+  /* {} */
 }
 button {
-  cursor: click;
+  cursor: pointer;
   transition: 0.3s ease-in-out;
   &:active {
     transform: scale(0.8);
