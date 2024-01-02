@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { Example } from "../components/Loading/Loading";
 export const useJobApiContext = createContext([]);
 
 export const GlobalContext = ({ children }) => {
@@ -20,7 +21,7 @@ export const GlobalContext = ({ children }) => {
   console.log(jobsPost);
 
   if (!jobsPost.length > 0) {
-    return <p>Loading.....</p>;
+    return <Example></Example>;
   }
 
   return (
