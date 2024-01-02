@@ -4,17 +4,28 @@ export const useJobApiContext = createContext([]);
 export const GlobalContext = ({ children }) => {
   const [jobsPost, setJobPost] = useState([]);
   useEffect(() => {
-    fetch("https://db-beta-six.vercel.app/jobs")
-      .then((res) => res.json())
-      .then((data) => setJobPost(data));
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://db-beta-six.vercel.app/jobs");
+        const data = await response.json();
+        setJobPost(data);
+      } catch (error) {
+        // Handle errors here
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
-  if (!jobsPost.length < 0) {
+  console.log(jobsPost);
+
+  if (!jobsPost.length > 0) {
     return <p>Loading.....</p>;
   }
 
   return (
     <>
-      {jobsPost.length < 0 ? (
+      {jobsPost.length > 0 ? (
         <useJobApiContext.Provider value={{ jobsPost }}>
           {children}
         </useJobApiContext.Provider>
