@@ -8,15 +8,19 @@ export const GlobalContext = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setJobPost(data));
   }, []);
-  if (!jobsPost) {
+  if (!jobsPost.length < 0) {
     return <p>Loading.....</p>;
   }
 
   return (
     <>
-      <useJobApiContext.Provider value={{ jobsPost }}>
-        {children}
-      </useJobApiContext.Provider>
+      {jobsPost.length < 0 ? (
+        <useJobApiContext.Provider value={{ jobsPost }}>
+          {children}
+        </useJobApiContext.Provider>
+      ) : (
+        <p>Loading.....</p>
+      )}
     </>
   );
 };
