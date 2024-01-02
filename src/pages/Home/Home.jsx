@@ -9,7 +9,7 @@ import { HeroSection } from "../../HeroSection/HeroSection";
 import { Link } from "react-router-dom";
 export const Home = () => {
   const { jobsPost } = useContext(useJobApiContext);
-  console.log(jobsPost);
+  // console.log(jobsPost);
   return (
     <>
       <div className="heroSectionContainer">

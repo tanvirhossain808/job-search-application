@@ -1,0 +1,15 @@
+.allJobs {
+  height: 268px;
+  width: 400px;
+  &:nth-child(odd) {
+    background-color: rgba(96, 238, 191, 0.5);
+  }
+}
+.addToFavourite {
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  &:hover {
+    /* transform: scale(4.1px); */
+    transform: scale(1.1);
+  }
+}

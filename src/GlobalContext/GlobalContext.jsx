@@ -3,11 +3,12 @@ import { Example } from "../components/Loading/Loading";
 export const useJobApiContext = createContext([]);
 
 export const GlobalContext = ({ children }) => {
+  const [updatePost, setUpdatePost] = useState([]);
   const [jobsPost, setJobPost] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://db-beta-six.vercel.app/jobs");
+        const response = await fetch("http://localhost:9000/jobs");
         const data = await response.json();
         setJobPost(data);
       } catch (error) {
@@ -17,7 +18,7 @@ export const GlobalContext = ({ children }) => {
     };
 
     fetchData();
-  }, []);
+  }, [updatePost]);
   console.log(jobsPost);
 
   if (!jobsPost.length > 0) {
@@ -27,7 +28,7 @@ export const GlobalContext = ({ children }) => {
   return (
     <>
       {jobsPost.length > 0 ? (
-        <useJobApiContext.Provider value={{ jobsPost }}>
+        <useJobApiContext.Provider value={{ jobsPost,setUpdatePost }}>
           {children}
         </useJobApiContext.Provider>
       ) : (

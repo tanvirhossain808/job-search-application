@@ -28,6 +28,7 @@ export const FiveLatesJobs = ({
         <div className="latesCompanyNameOtherDetails">
           <h3>{title}</h3>
           <h4>{contract}</h4>
+          <h4>{postedAt}</h4>
         </div>
         <div className="newJobDes">
           <p>

@@ -1,3 +1,47 @@
 .jobsList {
   margin-top: 100px;
 }
+.jobsSearcMain ul {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.jobsSearcMain ul li input {
+  border: 1px solid transparent;
+}
+.jobsSearcMain li {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-top: 200px;
+}
+.jobsSearcMain ul li button {
+  width: 100px;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+}
+.jobsSearcMain ul li {
+  margin: 0;
+}
+.jobs {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media only screen and (max-width: 920px) {
+  .jobs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .jobsSearcMain ul {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .jobs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

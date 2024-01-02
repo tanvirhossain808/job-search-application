@@ -18,6 +18,17 @@ export const AddNewJob = () => {
         console.log(error);
       });
   };
+  const handleDelete = () => {
+    const postIdToDelete = 1;
+    axios
+      .delete(`https://db-beta-six.vercel.app/jobs/${postIdToDelete}`)
+      .then((response) => {
+        console.log(`Deleted post with ID ${postIdToDelete}`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   useEffect(() => {
     fetch("https://db-beta-six.vercel.app/jobs")
       .then((res) => res.json())
@@ -34,6 +45,7 @@ export const AddNewJob = () => {
           onChange={(e) => setUserName(e.target.value)}
         />
         <button onClick={handleAddJob}>add user</button>
+        <button onClick={handleDelete}>Delete users</button>
       </div>
     </>
   );

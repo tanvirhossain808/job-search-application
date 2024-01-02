@@ -6,6 +6,9 @@ import { Jobs } from "../pages/Jobs/Jobs";
 import { About } from "../pages/About/About";
 import { SignUp } from "../pages/SignUp/SignUp";
 import { AddNewJob } from "../pages/AddNewJob/AddNewJob";
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer } from "react-toastify";
 
 export const routes = createBrowserRouter([
   {
