@@ -1,5 +1,9 @@
 import "./SignUp.css";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
@@ -10,6 +14,11 @@ import { auth } from "../../firebase/firebase.config";
 
 //
 export const SignUp = () => {
+  const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
+    useSignInWithGoogle(auth);
+  const [signInWithGithub, userGit, loadingGit, errorGit] =
+    useSignInWithGithub(auth);
+
   console.log(import.meta.env.VITE_SOME_A_API_KEY);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -43,16 +52,22 @@ export const SignUp = () => {
     }
     //
   };
+  const handleSignWithGoogle = () => {
+    signInWithGoogle();
+  };
+  const handleSignWithGitHub = () => {
+    signInWithGithub();
+  };
   return (
     <>
       <div className="formBody">
         <div className="container">
-          <button className="button">
+          <button className="button" onClick={handleSignWithGoogle}>
             <FaGoogle size={30} fill="red" />
 
             <p>Sign in with Google</p>
           </button>
-          <button className="button">
+          <button className="button" onClick={handleSignWithGitHub}>
             <FaGithub size={30} />
 
             <p>Sign in with Github</p>
