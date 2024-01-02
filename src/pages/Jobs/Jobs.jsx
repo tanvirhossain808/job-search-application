@@ -1,4 +1,3 @@
-import "./jobs.css";
 import { toast } from "react-toastify";
 
 export const Jobs = () => {
