@@ -4,7 +4,7 @@ export const useJobApiContext = createContext([]);
 export const GlobalContext = ({ children }) => {
   const [jobsPost, setJobPost] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9000/jobs")
+    fetch("https://db-beta-six.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => setJobPost(data));
   }, []);

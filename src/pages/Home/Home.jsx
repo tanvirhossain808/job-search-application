@@ -1,4 +1,6 @@
 import "./Home.css";
+import Swal from "sweetalert2";
+
 import { JobCategoriesNavigation } from "../../components/JobCatogorisNavigation/JobCatogoriesNavigation";
 import { useContext } from "react";
 import { useJobApiContext } from "../../GlobalContext/GlobalContext";

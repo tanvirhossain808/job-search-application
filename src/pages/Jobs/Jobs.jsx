@@ -1,3 +1,11 @@
+import "./jobs.css";
+import { toast } from "react-toastify";
+
 export const Jobs = () => {
-  return <>This is for jobs section</>;
+  toast.success("Wow so easy !");
+  return (
+    <>
+      <div className="jobsList"></div>This is for jobs section
+    </>
+  );
 };

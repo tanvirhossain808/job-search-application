@@ -1,19 +1,23 @@
 import "./SignUp.css";
+
 import {
+  useAuthState,
   useCreateUserWithEmailAndPassword,
   useSignInWithGithub,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
-
-//
-// const [email, setEmail] = useState("");
-
-//
+import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 export const SignUp = () => {
+  const naviGate = useNavigate();
+  const [authUser, authLoading, authError] = useAuthState(auth);
+  const [updateProfile, updatingUser, updatingError] = useUpdateProfile(auth);
   const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
     useSignInWithGoogle(auth);
   const [signInWithGithub, userGit, loadingGit, errorGit] =
@@ -29,11 +33,27 @@ export const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
-  console.log(userInfo);
+  // console.log(userInfo);
+  useEffect(() => {
+    if (authUser) {
+      Swal.fire({
+        title: "You successFulle create an account",
+        text: "press ok to proceed!",
+        icon: "success",
+      });
+      naviGate("/");
+    }
+  }, [authUser]);
 
-  const hadleCreaseUserWithEmailAndPass = (e) => {
-    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+  const hadleCreaseUserWithEmailAndPass = async (e) => {
     e.preventDefault();
+    const fullName = userInfo.firstName + userInfo.lastName;
+    await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    const success = await updateProfile({ displayName: fullName });
+    if (success) {
+      ("");
+    }
+
     console.log(user);
     console.log(error);
     if (error) {

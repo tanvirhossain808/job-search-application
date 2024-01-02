@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import "./AddNewJob.css";
 export const AddNewJob = () => {
   const [userName, setUserName] = useState("");
   const [getUser, setUser] = useState([]);
   const handleAddJob = () => {
     axios
-      .post("http://localhost:9000/jobs", {
+      .post("https://db-beta-six.vercel.app/jobs", {
         firstName: "Fred",
         lastName: "Flintstone",
       })
@@ -19,20 +19,22 @@ export const AddNewJob = () => {
       });
   };
   useEffect(() => {
-    fetch("http://localhost:9000/jobs")
+    fetch("https://db-beta-six.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => console.log(data));
   }, [getUser]);
   return (
     <>
-      <h2>Add new job here</h2>
-      <input
-        type="text"
-        name=""
-        id=""
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <button onClick={handleAddJob}>add user</button>
+      <div className="heyPoorman">
+        <h2>Add new job here</h2>
+        <input
+          type="text"
+          name=""
+          id=""
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <button onClick={handleAddJob}>add user</button>
+      </div>
     </>
   );
 };

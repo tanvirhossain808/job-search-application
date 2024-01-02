@@ -4,8 +4,14 @@ import logo from "../../assets/logo/logo.png";
 import { IoCloseSharp } from "react-icons/io5";
 import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/firebase.config";
 
 export const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  console.log(user);
+  const [signOut, loading, error] = useSignOut(auth);
   const [showMenue, setShowMenu] = useState(false);
   return (
     <>
@@ -34,13 +40,19 @@ export const Navbar = () => {
               <NavLink to="favorite">FAVORITE</NavLink>
             </li>
             <li>
-              <NavLink to="signup">SIGN UP</NavLink>
+              {user ? (
+                <span className="userAvater">
+                  <img src={user.photoURL} alt="" />
+                </span>
+              ) : (
+                <NavLink to="signup">SIGN UP</NavLink>
+              )}
             </li>
-            <li>
+            {/* <li>
               <NavLink to="SIGNIN">SIGNIN</NavLink>
-            </li>
-            <li>
-              <NavLink to="SIGNOUT">SIGN OUT</NavLink>
+            </li> */}
+            <li onClick={() => signOut()}>
+              {user ? <NavLink to>SIGN OUT</NavLink> : ""}
             </li>
             {showMenue ? (
               <li

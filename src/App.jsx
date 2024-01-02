@@ -1,12 +1,8 @@
-import { useState } from "react";
 import "./App.css";
-import { Home } from "./pages/Home/Home";
-import { Navbar } from "./components/Navbar/Navbar";
 import { OutletContainer } from "./Outlet/OutlesContainer";
+import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <OutletContainer></OutletContainer>
