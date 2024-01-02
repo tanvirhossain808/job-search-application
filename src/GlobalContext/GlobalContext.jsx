@@ -8,6 +8,9 @@ export const GlobalContext = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setJobPost(data));
   }, []);
+  if (!jobsPost) {
+    return <p>Loading.....</p>;
+  }
 
   return (
     <>
