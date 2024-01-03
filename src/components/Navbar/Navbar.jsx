@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo/logo.png";
 import { IoCloseSharp } from "react-icons/io5";
@@ -9,9 +9,8 @@ import { auth } from "../../firebase/firebase.config";
 
 export const Navbar = () => {
   const [user] = useAuthState(auth);
-
-  console.log(user);
   const [signOut, loading, error] = useSignOut(auth);
+  const navigate = useNavigate();
   const [showMenue, setShowMenu] = useState(false);
   return (
     <>
@@ -51,9 +50,19 @@ export const Navbar = () => {
             {/* <li>
               <NavLink to="SIGNIN">SIGNIN</NavLink>
             </li> */}
-            <li onClick={() => signOut()}>
-              {user ? <NavLink to>SIGN OUT</NavLink> : ""}
-            </li>
+            {user ? (
+              <li
+                onClick={() => {
+                  signOut();
+                  navigate("/");
+                }}
+              >
+                <NavLink to>SIGN OUT</NavLink>
+              </li>
+            ) : (
+              ""
+            )}
+
             {showMenue ? (
               <li
                 className="menubar menuShowBtn1"

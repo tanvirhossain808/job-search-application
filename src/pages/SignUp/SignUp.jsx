@@ -15,6 +15,8 @@ import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 export const SignUp = () => {
+  const namePattern = /^[A-Za-z]+$/;
+
   const naviGate = useNavigate();
   const [authUser, authLoading, authError] = useAuthState(auth);
   const [updateProfile, updatingUser, updatingError] = useUpdateProfile(auth);
@@ -22,8 +24,6 @@ export const SignUp = () => {
     useSignInWithGoogle(auth);
   const [signInWithGithub, userGit, loadingGit, errorGit] =
     useSignInWithGithub(auth);
-
-  console.log(import.meta.env.VITE_SOME_A_API_KEY);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [userInfo, setUserInfo] = useState({
@@ -37,7 +37,7 @@ export const SignUp = () => {
   useEffect(() => {
     if (authUser) {
       Swal.fire({
-        title: "You successFulle create an account",
+        title: "Successfully login",
         text: "press ok to proceed!",
         icon: "success",
       });
@@ -48,6 +48,24 @@ export const SignUp = () => {
   const hadleCreaseUserWithEmailAndPass = async (e) => {
     e.preventDefault();
     const fullName = userInfo.firstName + userInfo.lastName;
+    const isValidFirstName = namePattern.test(userInfo.firstName);
+    const isValidLastName = namePattern.test(userInfo.lastName);
+
+    if (!isValidFirstName || !isValidLastName) {
+      // Handle the error, e.g., display a message or prevent form submission
+      return toast.warn("Please give valid name!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      // console.error("Error: Invalid characters in first name or last name");
+      // return;
+    }
+
+    if (userInfo.password !== userInfo.confirmPassword) {
+      toast.warn("password doesn't match !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
     await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     const success = await updateProfile({ displayName: fullName });
     if (success) {
