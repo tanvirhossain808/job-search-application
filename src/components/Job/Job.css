@@ -5,6 +5,12 @@
     background-color: rgba(96, 238, 191, 0.5);
   }
 }
+.loveEdit {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
 .delJob {
   width: 100%;
 
@@ -23,7 +29,8 @@
   }
 }
 
-.addToFavourite {
+.addToFavourite,
+.edit {
   cursor: pointer;
   transition: 0.2s ease-in;
   &:hover {

@@ -1,10 +1,13 @@
 import "./Jobs.css";
 import { useJobApiContext } from "../../GlobalContext/GlobalContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Job } from "../../components/Job/Job";
 import axios from "axios";
+import Modal from "react-responsive-modal/dist";
+import EditModal from "../../components/Modal/Modal";
 
 export const Jobs = () => {
+  const [editId, setEditId] = useState(0);
   const { jobsPost, setUpdatePost } = useContext(useJobApiContext);
   useEffect(() => {}, []);
 
@@ -23,9 +26,17 @@ export const Jobs = () => {
       }, 1000);
     });
   };
+  const handleEditJobs = (e, id) => {
+    console.log(id);
+    e.stopPropagation();
+    setEditId(id);
+  };
   console.log(jobsPost);
   return (
     <>
+      <div className="modal">
+        <EditModal edit={{ editId, setEditId }}></EditModal>
+      </div>
       <div className="jobsList">
         <h2>
           Discover more than <span>5000 jobs</span>
@@ -44,7 +55,12 @@ export const Jobs = () => {
         </div>
         <div className="jobs">
           {jobsPost.map((job) => (
-            <Job key={job.id} job={job} setUpdatePost={setUpdatePost}></Job>
+            <Job
+              key={job.id}
+              job={job}
+              setUpdatePost={setUpdatePost}
+              handleEditJobs={handleEditJobs}
+            ></Job>
           ))}
         </div>
         <button onClick={addAll}></button>
