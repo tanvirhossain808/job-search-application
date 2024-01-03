@@ -1,5 +1,4 @@
 import "./Home.css";
-import Swal from "sweetalert2";
 
 import { JobCategoriesNavigation } from "../../components/JobCatogorisNavigation/JobCatogoriesNavigation";
 import { useContext } from "react";
@@ -9,7 +8,6 @@ import { HeroSection } from "../../HeroSection/HeroSection";
 import { Link } from "react-router-dom";
 export const Home = () => {
   const { jobsPost } = useContext(useJobApiContext);
-  // console.log(jobsPost);
   return (
     <>
       <div className="heroSectionContainer">

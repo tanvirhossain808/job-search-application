@@ -13,8 +13,9 @@ import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const SignUp = () => {
+  const [signIn, setSignIn] = useState(false);
   const namePattern = /^[A-Za-z]+$/;
 
   const naviGate = useNavigate();
@@ -112,28 +113,36 @@ export const SignUp = () => {
           </button>
           <p>or</p>
           <form className="form" onSubmit={hadleCreaseUserWithEmailAndPass}>
-            <input
-              required
-              type="text"
-              name="firstName"
-              placeholder="Type your first name"
-              size="22"
-              value={userInfo.firstName}
-              onChange={(e) =>
-                setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-              }
-            />
-            <input
-              type="text"
-              placeholder="Type your last name"
-              name="lastName"
-              required
-              value={userInfo.lastName}
-              onChange={(e) =>
-                setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-              }
-              size="22"
-            />
+            {signIn ? (
+              ""
+            ) : (
+              <input
+                required
+                type="text"
+                name="firstName"
+                placeholder="Type your first name"
+                size="22"
+                value={userInfo.firstName}
+                onChange={(e) =>
+                  setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
+                }
+              />
+            )}
+            {signIn ? (
+              ""
+            ) : (
+              <input
+                type="text"
+                placeholder="Type your last name"
+                name="lastName"
+                required
+                value={userInfo.lastName}
+                onChange={(e) =>
+                  setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
+                }
+                size="22"
+              />
+            )}
             <input
               type="email"
               placeholder="Type your email"
@@ -156,22 +165,27 @@ export const SignUp = () => {
               name="password"
               size="22"
             />
-            <input
-              type="password"
-              required
-              value={userInfo.confirmPassword}
-              placeholder="Confirm password"
-              name="confirmPassword"
-              onChange={(e) =>
-                setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-              }
-              size="22"
-            />
-            <button type="submit">Sign up</button>
+            {signIn ? (
+              ""
+            ) : (
+              <input
+                type="password"
+                required
+                value={userInfo.confirmPassword}
+                placeholder="Confirm password"
+                name="confirmPassword"
+                onChange={(e) =>
+                  setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
+                }
+                size="22"
+              />
+            )}
+            <button type="submit">{signIn ? "Sign In" : "Sign Up"}</button>
           </form>
-          <p id="signup">
-            Do nt have an account ? <a href="#">Sign up</a>
-          </p>
+          <Link onClick={() => setSignIn(!signIn)}>
+            {signIn ? "Don't have an account" : " You already have an account"}{" "}
+            ?
+          </Link>
         </div>
       </div>
     </>

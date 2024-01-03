@@ -2,8 +2,17 @@ import "./HeroSection.css";
 import bannerPic from "./../assets/banner/bnr.png";
 import { CiSearch } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase.config";
+import { useEffect, useState } from "react";
+
 export const HeroSection = () => {
+  const [user, setUser] = useState(false);
+  const authUser = useAuthState(auth);
+  const navigate = useNavigate();
+
+  console.log(user);
   return (
     <>
       <div className="hero">
@@ -45,6 +54,21 @@ export const HeroSection = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="exploerNowBtn">
+          {authUser[0] ? (
+            ""
+          ) : (
+            <button
+              disabled={authUser[0] ? true : false}
+              onClick={() => {
+                setUser([]);
+                navigate("/signup");
+              }}
+            >
+              Explore Now
+            </button>
+          )}
         </div>
       </div>
     </>

@@ -1,13 +1,13 @@
-import "./Job.css";
-import { Link, useNavigate } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
-
 import axios from "axios";
-import {  toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "./FavouriteJob.css";
+import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { useJobApiContext } from "../../GlobalContext/GlobalContext";
 
-export const Job = ({
-  job: {
+export const FavouriteJob = ({
+  favJob: {
     id,
     logo,
     postedAt,
@@ -19,23 +19,20 @@ export const Job = ({
     salary,
     favourite,
   },
-  job,
-  setUpdatePost,
+  favJob,
 }) => {
-  const naviGate = useNavigate();
-  const hadleNavigateToSiglePage = () => {
-    naviGate(`${id}`);
-  };
+  console.log(salary, "df");
+  const { setUpdatePost } = useContext(useJobApiContext);
   const handleAddToFavourite = async () => {
     const res = await axios({
       method: "put",
       url: `http://localhost:9000/jobs/${id}`,
       data: {
-        ...job,
+        ...favJob,
         favourite: !favourite,
       },
     });
-    +setUpdatePost(res);
+    setUpdatePost(res);
     !favourite
       ? toast.success("Added as favourite !", {
           position: toast.POSITION.TOP_RIGHT,
@@ -44,26 +41,9 @@ export const Job = ({
           position: toast.POSITION.TOP_RIGHT,
         });
   };
-  const delParticularJob = async () => {
-    const res = await axios({
-      method: "delete",
-      url: `http://localhost:9000/jobs/${id}`,
-      data: {
-        ...job,
-      },
-    });
-    +setUpdatePost(res);
-    console.log("hey");
-    toast.warn("Delete the jos post !", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
   return (
     <>
-      <div
-        onClick={hadleNavigateToSiglePage}
-        className="singleLatesJob allJobs"
-      >
+      <div className="singleLatesJob allJobs favouriteJob">
         <div className="latestJobCompanyName">
           <div>
             <img src={logo} alt="" />
@@ -95,9 +75,6 @@ export const Job = ({
           <Link>
             <h4 className="newJobSalary">Apply now</h4>
           </Link>
-        </div>
-        <div className="delJob">
-          <button onClick={delParticularJob}>Delete</button>
         </div>
       </div>
     </>

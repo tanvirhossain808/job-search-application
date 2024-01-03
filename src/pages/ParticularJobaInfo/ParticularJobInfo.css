@@ -1,0 +1,36 @@
+.particularJobInfo {
+  margin-top: 120px;
+  padding: 10px 10px 0 40px;
+}
+.companyName {
+  text-align: center;
+}
+.particularJobInfo h2,
+h3,
+h4 {
+  margin-top: 30px;
+}
+.facIcon {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  /* align-items: flex-end; */
+}
+.applyForJob {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+.applyForJob button {
+  border: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+
+  &:hover {
+    background-color: #10b981a1;
+  }
+}

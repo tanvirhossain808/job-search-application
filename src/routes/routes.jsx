@@ -9,6 +9,8 @@ import { AddNewJob } from "../pages/AddNewJob/AddNewJob";
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer } from "react-toastify";
+import { FavouriteJobs } from "../pages/FavouriteJobs/FavouriteJobs";
+import { ParticularJobPageInfo } from "../pages/ParticularJobaInfo/ParticularJobInfo";
 
 export const routes = createBrowserRouter([
   {
@@ -24,12 +26,16 @@ export const routes = createBrowserRouter([
         element: <Jobs></Jobs>,
       },
       {
+        path: "jobs/:id",
+        element: <ParticularJobPageInfo></ParticularJobPageInfo>,
+      },
+      {
         path: "abouts",
         element: <About></About>,
       },
       {
         path: "favorite",
-        element: <About></About>,
+        element: <FavouriteJobs></FavouriteJobs>,
       },
       {
         path: "signup",

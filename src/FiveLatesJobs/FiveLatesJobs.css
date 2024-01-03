@@ -2,8 +2,8 @@
   background-color: #fff;
   position: relative;
   /* z-index: -3; */
-  height: 268px;
-  width: 400px;
+  height: 350px;
+  /* width: 100%; */
   padding-top: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -13,7 +13,7 @@
     transform: translateY(-1px);
   }
 }
-.singleLatesJob img {
+.latestJobCompanyName img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -50,12 +50,24 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  bottom: 10px;
+  bottom: 40px;
 }
 .nowJobApply-salary .newJobSalary {
   color: #10b981;
 }
 .latesCompanyNameOtherDetails,
 .newJobDes {
-  padding: 10px;
+  padding-left: 10px;
+}
+@media only screen and (max-width: 965px) {
+  .singleLatesJob {
+    height: 450px;
+  }
+
+  @media only screen and (max-width: 580px) {
+    .singleLatesJob {
+      font-size: 1rem;
+      height: 500px;
+    }
+  }
 }

@@ -2,3 +2,25 @@
   margin-bottom: 50px;
 }
 /* all othesrs css style of this particular component is in Home.css file */
+.exploerNowBtn {
+  width: 100px;
+  height: 30px;
+  margin: 0 auto;
+}
+.exploerNowBtn button {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  translate: 0.2s;
+  &:hover {
+    background-color: #10b981b2;
+  }
+}
+.heroImg {
+  width: 100%;
+}
+.heroImg img {
+  width: 100%;
+}

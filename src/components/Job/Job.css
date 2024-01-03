@@ -1,8 +1,25 @@
 .allJobs {
-  height: 268px;
+  height: 400px;
   width: 400px;
   &:nth-child(odd) {
     background-color: rgba(96, 238, 191, 0.5);
+  }
+}
+.delJob {
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+}
+.delJob button {
+  display: block;
+  width: 50%;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s;
+  &:hover {
+    background-color: #10b981b2;
   }
 }
 
@@ -24,10 +41,10 @@
     padding: 0;
   }
 }
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 900px) {
   .allJobs {
     font-size: 1rem;
-    height: 300px;
+    height: 400px;
     width: 300px;
   }
 }

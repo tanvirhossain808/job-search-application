@@ -5,11 +5,9 @@ import { Job } from "../../components/Job/Job";
 import axios from "axios";
 
 export const Jobs = () => {
-  const { jobsPost,setUpdatePost } = useContext(useJobApiContext);
-  useEffect(()=>{
-    
-  },[])
- 
+  const { jobsPost, setUpdatePost } = useContext(useJobApiContext);
+  useEffect(() => {}, []);
+
   const addAll = () => {
     jobsPost.forEach((data) => {
       setTimeout(async () => {
@@ -20,7 +18,6 @@ export const Jobs = () => {
             ...data,
             favourite: false,
           },
-
         });
         console.log(res);
       }, 1000);
