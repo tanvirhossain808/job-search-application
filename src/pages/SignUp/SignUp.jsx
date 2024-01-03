@@ -3,6 +3,7 @@ import "./SignUp.css";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
   useSignInWithGithub,
   useSignInWithGoogle,
   useUpdateProfile,
@@ -14,7 +15,11 @@ import { auth } from "../../firebase/firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import { Error } from "../Error/Error";
 export const SignUp = () => {
+  const [error2, setError] = useState({});
+  const [signInWithEmailAndPassword, userSignIn, loadingSign, errorSign] =
+    useSignInWithEmailAndPassword(auth);
   const [signIn, setSignIn] = useState(false);
   const namePattern = /^[A-Za-z]+$/;
 
@@ -34,7 +39,6 @@ export const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
-  // console.log(userInfo);
   useEffect(() => {
     if (authUser) {
       Swal.fire({
@@ -45,6 +49,9 @@ export const SignUp = () => {
       naviGate("/");
     }
   }, [authUser]);
+  useEffect(() => {
+    setError(authError || errorSign);
+  }, [authError || errorSign]);
 
   const hadleCreaseUserWithEmailAndPass = async (e) => {
     e.preventDefault();
@@ -52,42 +59,41 @@ export const SignUp = () => {
     const isValidFirstName = namePattern.test(userInfo.firstName);
     const isValidLastName = namePattern.test(userInfo.lastName);
 
-    if (!isValidFirstName || !isValidLastName) {
-      // Handle the error, e.g., display a message or prevent form submission
-      return toast.warn("Please give valid name!", {
-        position: toast.POSITION.TOP_CENTER,
-      });
-      // console.error("Error: Invalid characters in first name or last name");
-      // return;
+    {
+      !signIn && (!isValidFirstName || !isValidLastName)
+        ? // Handle the error, e.g., display a message or prevent form submission
+          (toast.warn("Please give valid name!", {
+            position: toast.POSITION.TOP_CENTER,
+          }),
+          null) // Returning null to render nothing
+        : null;
     }
 
-    if (userInfo.password !== userInfo.confirmPassword) {
-      toast.warn("password doesn't match !", {
-        position: toast.POSITION.TOP_CENTER,
-      });
-      return;
-    }
-    await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-    const success = await updateProfile({ displayName: fullName });
-    if (success) {
-      ("");
+    {
+      !signIn && userInfo.password !== userInfo.confirmPassword
+        ? // Handle the error, e.g., display a message or prevent further actions
+          (toast.warn("Password doesn't match!", {
+            position: toast.POSITION.TOP_CENTER,
+          }),
+          null)
+        : null;
     }
 
-    console.log(user);
-    console.log(error);
-    if (error) {
-      return (
-        <div>
-          <p>Error: {error.message}</p>
-        </div>
-      );
+    {
+      !signIn
+        ? await createUserWithEmailAndPassword(
+            userInfo.email,
+            userInfo.password
+          )
+        : await signInWithEmailAndPassword(userInfo.email, userInfo.password);
     }
+    setError(errorSign);
+    {
+      !signIn && (await updateProfile({ displayName: fullName }));
+    }
+
     if (loading) {
       return <p>Loading...</p>;
-    }
-    console.log();
-    if (user) {
-      ("");
     }
     //
   };
@@ -97,97 +103,115 @@ export const SignUp = () => {
   const handleSignWithGitHub = () => {
     signInWithGithub();
   };
+  console.log(error2?.message);
+
   return (
     <>
-      <div className="formBody">
-        <div className="container">
-          <button className="button" onClick={handleSignWithGoogle}>
-            <FaGoogle size={30} fill="red" />
+      {loading ? <p>loading...</p> : ""}
+      {error2 ? (
+        <Error error={error2}></Error>
+      ) : (
+        <div className="formBody">
+          <div className="container">
+            <button className="button" onClick={handleSignWithGoogle}>
+              <FaGoogle size={30} fill="red" />
 
-            <p>Sign in with Google</p>
-          </button>
-          <button className="button" onClick={handleSignWithGitHub}>
-            <FaGithub size={30} />
+              <p>Sign in with Google</p>
+            </button>
+            <button className="button" onClick={handleSignWithGitHub}>
+              <FaGithub size={30} />
 
-            <p>Sign in with Github</p>
-          </button>
-          <p>or</p>
-          <form className="form" onSubmit={hadleCreaseUserWithEmailAndPass}>
-            {signIn ? (
-              ""
-            ) : (
+              <p>Sign in with Github</p>
+            </button>
+            <p>or</p>
+            <form className="form" onSubmit={hadleCreaseUserWithEmailAndPass}>
+              {signIn ? (
+                ""
+              ) : (
+                <input
+                  required
+                  type="text"
+                  name="firstName"
+                  placeholder="Type your first name"
+                  size="22"
+                  value={userInfo.firstName}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+              )}
+              {signIn ? (
+                ""
+              ) : (
+                <input
+                  type="text"
+                  placeholder="Type your last name"
+                  name="lastName"
+                  required
+                  value={userInfo.lastName}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                  size="22"
+                />
+              )}
               <input
+                type="email"
+                placeholder="Type your email"
+                name="email"
                 required
-                type="text"
-                name="firstName"
-                placeholder="Type your first name"
-                size="22"
-                value={userInfo.firstName}
+                value={userInfo.email}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
                 }
-              />
-            )}
-            {signIn ? (
-              ""
-            ) : (
-              <input
-                type="text"
-                placeholder="Type your last name"
-                name="lastName"
-                required
-                value={userInfo.lastName}
-                onChange={(e) =>
-                  setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-                }
                 size="22"
               />
-            )}
-            <input
-              type="email"
-              placeholder="Type your email"
-              name="email"
-              required
-              value={userInfo.email}
-              onChange={(e) =>
-                setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-              }
-              size="22"
-            />
-            <input
-              type="password"
-              value={userInfo.password}
-              placeholder="Type your password"
-              required
-              onChange={(e) =>
-                setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-              }
-              name="password"
-              size="22"
-            />
-            {signIn ? (
-              ""
-            ) : (
               <input
                 type="password"
+                value={userInfo.password}
+                placeholder="Type your password"
                 required
-                value={userInfo.confirmPassword}
-                placeholder="Confirm password"
-                name="confirmPassword"
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
                 }
+                name="password"
                 size="22"
               />
-            )}
-            <button type="submit">{signIn ? "Sign In" : "Sign Up"}</button>
-          </form>
-          <Link onClick={() => setSignIn(!signIn)}>
-            {signIn ? "Don't have an account" : " You already have an account"}{" "}
-            ?
-          </Link>
+              {signIn ? (
+                ""
+              ) : (
+                <input
+                  type="password"
+                  required
+                  value={userInfo.confirmPassword}
+                  placeholder="Confirm password"
+                  name="confirmPassword"
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                  size="22"
+                />
+              )}
+              <button type="submit">{signIn ? "Sign In" : "Sign Up"}</button>
+            </form>
+            <Link onClick={() => setSignIn(!signIn)}>
+              {signIn
+                ? "Don't have an account"
+                : " You already have an account"}{" "}
+              ?
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

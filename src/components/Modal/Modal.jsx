@@ -1,4 +1,4 @@
-import './Modal.css'
+import "./Modal.css";
 import React, { useContext, useEffect, useState } from "react";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -58,10 +58,6 @@ const EditModal = ({ edit: { editId, setEditId } }) => {
 
   return (
     <>
-      <button className="button" onClick={() => setOpen(true)}>
-        Open modal
-      </button>
-
       <Modal
         open={open}
         onClose={() => {
