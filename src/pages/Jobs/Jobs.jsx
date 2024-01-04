@@ -5,8 +5,12 @@ import { Job } from "../../components/Job/Job";
 import axios from "axios";
 import Modal from "react-responsive-modal/dist";
 import EditModal from "../../components/Modal/Modal";
+import ScrollToTop from "../../components/ScorllToTop/ScorllToTop";
 
 export const Jobs = () => {
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };
   const [editId, setEditId] = useState(0);
   const { jobsPost, setUpdatePost } = useContext(useJobApiContext);
   useEffect(() => {}, []);
@@ -34,6 +38,9 @@ export const Jobs = () => {
   console.log(jobsPost);
   return (
     <>
+      <div>
+        <ScrollToTop></ScrollToTop>
+      </div>
       <div className="modal">
         <EditModal edit={{ editId, setEditId }}></EditModal>
       </div>
