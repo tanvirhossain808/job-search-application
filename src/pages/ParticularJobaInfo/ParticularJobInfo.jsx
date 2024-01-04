@@ -9,16 +9,8 @@ export const ParticularJobPageInfo = () => {
   const { id } = useParams();
   const { jobsPost, setUpdatePost } = useContext(useJobApiContext);
   const findParticularJob = jobsPost.find((job) => job.id === +id);
-  const {
-    website,
-    title,
-    salary,
-    description,
-    contract,
-    company,
-    logo,
-    favourite,
-  } = findParticularJob;
+  const { title, salary, description, contract, company, logo, favourite } =
+    findParticularJob;
   //   const isApplied = async () => {
   //     const res = await axios({
   //       method: "put",

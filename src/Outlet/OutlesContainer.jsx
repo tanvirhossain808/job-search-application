@@ -8,7 +8,6 @@ export const OutletContainer = () => {
   return (
     <>
       <Navbar />
-
       <GlobalContext>
         <div className="outLet">
           <Outlet />

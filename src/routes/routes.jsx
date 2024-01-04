@@ -7,16 +7,16 @@ import { About } from "../pages/About/About";
 import { SignUp } from "../pages/SignUp/SignUp";
 import { AddNewJob } from "../pages/AddNewJob/AddNewJob";
 import "react-toastify/dist/ReactToastify.css";
-
-import { ToastContainer } from "react-toastify";
 import { FavouriteJobs } from "../pages/FavouriteJobs/FavouriteJobs";
 import { ParticularJobPageInfo } from "../pages/ParticularJobaInfo/ParticularJobInfo";
 import { NotFound } from "../pages/NotFound/NotFound";
+import { Error } from "../pages/Error/Error";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "",

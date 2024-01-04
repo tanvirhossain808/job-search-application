@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { Error } from "../Error/Error";
+import { Example } from "../../components/Loading/Loading";
 export const SignUp = () => {
   const [error2, setError] = useState({});
   const [signInWithEmailAndPassword, userSignIn, loadingSign, errorSign] =
@@ -103,8 +104,6 @@ export const SignUp = () => {
   const handleSignWithGitHub = () => {
     signInWithGithub();
   };
-  console.log(error2?.message);
-
   return (
     <>
       {loading ? <p>loading...</p> : ""}

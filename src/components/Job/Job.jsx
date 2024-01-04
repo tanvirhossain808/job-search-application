@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CiEdit } from "react-icons/ci";
+import { constAddToFav } from "../../utilities/AddToFav/AddToFav";
 
 export const Job = ({
   job: {
@@ -32,14 +33,15 @@ export const Job = ({
   const handleAddToFavourite = async (e) => {
     console.log(e);
     e.stopPropagation();
-    const res = await axios({
-      method: "put",
-      url: `http://localhost:9000/jobs/${id}`,
-      data: {
-        ...job,
-        favourite: !favourite,
-      },
-    });
+    const res = constAddToFav(id, job, favourite);
+    // const res = await axios({
+    //   method: "put",
+    //   url: `http://localhost:9000/jobs/${id}`,
+    //   data: {
+    //     ...job,
+    //     favourite: !favourite,
+    //   },
+    // });
     +setUpdatePost(res);
     !favourite
       ? toast.success("Added as favourite !", {
@@ -50,7 +52,8 @@ export const Job = ({
         });
   };
   // const handleEdit = () => {};
-  const delParticularJob = async () => {
+  const delParticularJob = async (e) => {
+    e.stopPropagation();
     const res = await axios({
       method: "delete",
       url: `http://localhost:9000/jobs/${id}`,
@@ -100,7 +103,10 @@ export const Job = ({
         </div>
         <div className="newJobDes">
           <p>
-            {description.length <= 80 ? description : description.slice(0, 80)}
+            {description?.length <= 80
+              ? description
+              : description?.slice(0, 80)}
+            ...
           </p>
         </div>
         <div className="nowJobApply-salary">
@@ -110,7 +116,7 @@ export const Job = ({
           </Link>
         </div>
         <div className="delJob">
-          <button onClick={delParticularJob}>Delete</button>
+          <button onClick={(e) => delParticularJob(e)}>Delete</button>
         </div>
       </div>
     </>

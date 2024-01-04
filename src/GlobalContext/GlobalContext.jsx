@@ -1,3 +1,4 @@
+import "./GlobalContext.css";
 import { createContext, useEffect, useState } from "react";
 import { Example } from "../components/Loading/Loading";
 export const useJobApiContext = createContext([]);
@@ -22,13 +23,17 @@ export const GlobalContext = ({ children }) => {
   console.log(jobsPost);
 
   if (!jobsPost.length > 0) {
-    return <Example></Example>;
+    return (
+      <div className="loading">
+        <Example></Example>
+      </div>
+    );
   }
 
   return (
     <>
       {jobsPost.length > 0 ? (
-        <useJobApiContext.Provider value={{ jobsPost,setUpdatePost }}>
+        <useJobApiContext.Provider value={{ jobsPost, setUpdatePost }}>
           {children}
         </useJobApiContext.Provider>
       ) : (
