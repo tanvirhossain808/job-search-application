@@ -10,13 +10,6 @@ export const Home = () => {
   const { jobsPost } = useContext(useJobApiContext);
   return (
     <>
-      <div className="heroSectionContainer">
-        <HeroSection></HeroSection>
-      </div>
-      <div className="jobNavigationCategores">
-        <JobCategoriesNavigation></JobCategoriesNavigation>
-      </div>
-
       <div className="fiveLatesJobsStyle">
         {jobsPost
           ?.reverse()
@@ -25,6 +18,13 @@ export const Home = () => {
             <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
           ))}
       </div>
+      <div className="heroSectionContainer">
+        <HeroSection></HeroSection>
+      </div>
+      <div className="jobNavigationCategores">
+        <JobCategoriesNavigation></JobCategoriesNavigation>
+      </div>
+
       <div className="redrictToJobPageFromToPJobs">
         <Link to={"jobs"}>
           <button>Explore All</button>
