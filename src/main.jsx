@@ -9,9 +9,7 @@ import { FallbackRender } from "./components/FallbackRender/FallbackRender.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ErrorBoundary fallbackRender={FallbackRender} onReset={(details) => {
-    // Reset the state of your app so the error doesn't happen again
-  }}>
+    <ErrorBoundary fallbackRender={FallbackRender}>
       <ToastContainer />
       <RouterProvider router={routes}>
         <App />
