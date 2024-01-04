@@ -23,11 +23,7 @@ export const GlobalContext = ({ children }) => {
   console.log(jobsPost);
 
   if (!jobsPost.length > 0) {
-    return (
-      <div className="loading">
-        <Example></Example>
-      </div>
-    );
+    return <div className="loading">{/* <Example></Example> */}</div>;
   }
 
   return (

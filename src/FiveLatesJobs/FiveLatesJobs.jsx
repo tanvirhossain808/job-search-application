@@ -27,7 +27,7 @@ export const FiveLatesJobs = ({
   const handleAddToFavourite = async (e) => {
     console.log(e);
     e.stopPropagation();
-    const res = constAddToFav(id, job, favourite);
+    const res = await constAddToFav(id, job, favourite);
     // const res = await axios({
     //   method: "put",
     //   url: `http://localhost:9000/jobs/${id}`,
@@ -77,7 +77,9 @@ export const FiveLatesJobs = ({
         </div>
         <div className="newJobDes">
           <p>
-            {description.length <= 80 ? description : description.slice(0, 80)}
+            {description?.length <= 80
+              ? description
+              : description?.slice(0, 80)}
           </p>
         </div>
         <div className="nowJobApply-salary">
