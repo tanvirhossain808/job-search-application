@@ -30,7 +30,7 @@ export const Job = ({
   const hadleNavigateToSiglePage = () => {
     naviGate(`${id}`);
   };
-  const handleAddToFavourite = async (e) => {
+  const handleAddToFavourite = (e) => {
     console.log(e);
     e.stopPropagation();
     const res = constAddToFav(id, job, favourite);
