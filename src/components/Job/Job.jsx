@@ -52,9 +52,9 @@ export const Job = ({
         });
   };
   // const handleEdit = () => {};
-  const delParticularJob = async (e) => {
+  const delParticularJob =  (e) => {
     e.stopPropagation();
-    const res = axios({
+    const res =  axios({
       method: "delete",
       url: `http://localhost:9000/jobs/${id}`,
       data: {
