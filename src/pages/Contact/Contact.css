@@ -1,0 +1,49 @@
+.contactUs {
+  margin-top: 80px;
+}
+.pageHeader {
+  background-image: url(./../../assets/contact/company.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px;
+  color: white;
+  color: #757575;
+}
+.headerText h2 {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+.headerText {
+  color: white;
+}
+
+.ContactHeroSection {
+  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.ContactHeroSection h2,
+.ContactHeroSection h3 {
+  margin-bottom: 10px;
+}
+.contactUsText {
+  color: #3c65f5;
+}
+.getInTouch {
+  color: #212529;
+}
+.contatFromFlex {
+  display: flex;
+}
+.contatFromFlex input {
+  border: 1px solid black;
+  padding-left: 20px;
+  height: 40px;
+}
+
+@media only screen and (max-width: 920px) {
+  .contatFromFlex {
+    flex-direction: column;
+  }
+}
