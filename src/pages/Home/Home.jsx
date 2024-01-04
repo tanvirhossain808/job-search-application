@@ -10,14 +10,6 @@ export const Home = () => {
   const { jobsPost } = useContext(useJobApiContext);
   return (
     <>
-      <div className="fiveLatesJobsStyle">
-        {jobsPost
-          ?.reverse()
-          ?.filter((job) => jobsPost.length - 5 < job.id)
-          ?.map((job) => (
-            <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
-          ))}
-      </div>
       <div className="heroSectionContainer">
         <HeroSection></HeroSection>
       </div>
@@ -25,6 +17,14 @@ export const Home = () => {
         <JobCategoriesNavigation></JobCategoriesNavigation>
       </div>
 
+      <div className="fiveLatesJobsStyle">
+        {jobsPost
+          ?.reverse()
+          ?.filter((job) => jobsPost.length - 9 < job.id)
+          ?.map((job) => (
+            <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
+          ))}
+      </div>
       <div className="redrictToJobPageFromToPJobs">
         <Link to={"jobs"}>
           <button>Explore All</button>
