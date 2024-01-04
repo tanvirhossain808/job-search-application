@@ -38,7 +38,7 @@ export const Job = ({
         }
       );
     }
-    const res = constAddToFav(id, job, applied);
+    const res = constAddToFav(id, job, favourite, "applied");
     console.log(applied, "applied") + setUpdatePost(res);
     !applied
       ? toast.success("Added as favourite !", {
@@ -56,7 +56,7 @@ export const Job = ({
   const handleAddToFavourite = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const res = constAddToFav(id, job, favourite);
+    const res = constAddToFav(id, job, favourite, "favourite");
     // const res = await axios({
     //   method: "put",
     //   url: `http://localhost:9000/jobs/${id}`,
