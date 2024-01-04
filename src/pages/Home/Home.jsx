@@ -18,12 +18,9 @@ export const Home = () => {
       </div>
 
       <div className="fiveLatesJobsStyle">
-        {jobsPost
-          ?.reverse()
-          ?.filter((job) => jobsPost.length - 9 < job.id)
-          ?.map((job) => (
-            <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
-          ))}
+        {jobsPost.map((job) => (
+          <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
+        ))}
       </div>
       <div className="redrictToJobPageFromToPJobs">
         <Link to={"jobs"}>
