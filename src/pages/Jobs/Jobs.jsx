@@ -38,7 +38,9 @@ export const Jobs = () => {
   // console.log(jobsPost);
   return (
     <>
-      <div>{/* <ScrollToTop></ScrollToTop> */}</div>
+      <div>
+        <ScrollToTop></ScrollToTop>
+      </div>
       <div className="modal">
         <EditModal edit={{ editId, setEditId }}></EditModal>
       </div>
