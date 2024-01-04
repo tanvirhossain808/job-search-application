@@ -18,7 +18,7 @@ export const Contact = () => {
           </p>
         </div>
         <div className="contatUsPageForm">
-          <form action="">
+          <form action="" className="formCon">
             <span className="contatFromFlex">
               <input type="text" name="name" placeholder="Type name" />
               <input
