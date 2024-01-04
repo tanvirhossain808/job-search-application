@@ -53,26 +53,23 @@ export const FiveLatesJobs = ({
     <>
       <div className="singleLatesJob" onClick={handleNavigateToJobPage}>
         <div className="latestJobCompanyName">
-          <div>
-            <img src={logo} alt="" />
+          <img src={logo} alt="" />
+
+          <div className="cLocationAndName">
+            <h4>{company}</h4>
+            <p>Location:{location}</p>
           </div>
-          <div>
-            <h2>Company:{company}</h2>
-            <h3>Location:{location}</h3>
-            <span>
-              <FaHeart
-                onClick={(e) => handleAddToFavourite(e)}
-                fill={favourite ? "#E4007C" : ""}
-                size={30}
-                className="addToFavourite"
-              />
-            </span>
-          </div>
+          <span>
+            <FaHeart
+              onClick={(e) => handleAddToFavourite(e)}
+              fill={favourite ? "#E4007C" : ""}
+              size={30}
+              className="addToFavourite"
+            />
+          </span>
         </div>
         <div className="latesCompanyNameOtherDetails">
-          <h3>Title:{title}</h3>
           <h3>Position:{position}</h3>
-          <h4>Contract:{contract}</h4>
           <h4>{postedAt}</h4>
         </div>
         <div className="newJobDes">

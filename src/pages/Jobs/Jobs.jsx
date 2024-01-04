@@ -3,7 +3,6 @@ import { useJobApiContext } from "../../GlobalContext/GlobalContext";
 import { useContext, useEffect, useState } from "react";
 import { Job } from "../../components/Job/Job";
 import axios from "axios";
-import Modal from "react-responsive-modal/dist";
 import EditModal from "../../components/Modal/Modal";
 import ScrollToTop from "../../components/ScorllToTop/ScorllToTop";
 

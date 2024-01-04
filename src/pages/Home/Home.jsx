@@ -8,8 +8,6 @@ import { HeroSection } from "../../HeroSection/HeroSection";
 import { Link } from "react-router-dom";
 export const Home = () => {
   const { jobsPost } = useContext(useJobApiContext);
-    ?.reverse()
-    ?.filter((job) => jobsPost.length - 5 < job.id);
 
   return (
     <>
@@ -22,10 +20,11 @@ export const Home = () => {
 
       <div className="fiveLatesJobsStyle">
         {[...jobsPost]
-    ?.reverse()
-    ?.filter((job) => jobsPost.length - 5 < job.id).latesFiveJobs.map((job) => (
-          <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
-        ))}
+          ?.reverse()
+          ?.filter((job) => jobsPost.length - 5 < job.id)
+          .map((job) => (
+            <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
+          ))}
       </div>
       <div className="redrictToJobPageFromToPJobs">
         <Link to={"jobs"}>

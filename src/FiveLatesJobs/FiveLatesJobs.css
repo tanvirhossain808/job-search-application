@@ -1,8 +1,10 @@
 .singleLatesJob {
+  width: 268px;
+  height: 308px;
   background-color: #fff;
   position: relative;
   /* z-index: -3; */
-  height: 400px;
+  /* height: 400px; */
   /* width: 100%; */
   padding-top: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -13,11 +15,16 @@
     transform: translateY(-1px);
   }
 }
+.cLocationAndName h4 {
+  font-size: 18px;
+}
+.cLocationAndName p {
+  font-size: 12px;
+}
 .latestJobCompanyName img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-bottom: 20px;
 }
 .jobsPostStatus {
   display: flex;
@@ -43,6 +50,7 @@
 }
 .latestJobCompanyName {
   display: flex;
+  align-items: center;
 }
 .nowJobApply-salary {
   width: 100%;
@@ -58,6 +66,9 @@
 .latesCompanyNameOtherDetails,
 .newJobDes {
   padding-left: 10px;
+}
+.latesCompanyNameOtherDetails h3 {
+  font-size: 24px;
 }
 @media only screen and (max-width: 965px) {
   .singleLatesJob {
