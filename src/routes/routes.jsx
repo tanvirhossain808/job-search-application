@@ -13,6 +13,7 @@ import { NotFound } from "../pages/NotFound/NotFound";
 import { Error } from "../pages/Error/Error";
 import { AppliedJobs } from "../pages/AppliedJobs/AppliesJobs";
 import PrivateRoutes from "./PrivateRoute/PrivateRoutes";
+import { PostJob } from "../pages/PostJob/PostJob";
 
 export const routes = createBrowserRouter([
   {
@@ -56,7 +57,7 @@ export const routes = createBrowserRouter([
         path: "addNewJob",
         element: (
           <PrivateRoutes>
-            <AddNewJob></AddNewJob>
+            <PostJob></PostJob>
           </PrivateRoutes>
         ),
       },

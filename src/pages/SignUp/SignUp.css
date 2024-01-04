@@ -67,7 +67,8 @@ input {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
   /* border: 1px gray solid; */
   border-radius: 4px;
   padding: 0.4rem 4rem;
@@ -75,7 +76,8 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="number"]:focus {
   outline: none;
   border: 1px solid #1d9bf0;
   cursor: pointer;

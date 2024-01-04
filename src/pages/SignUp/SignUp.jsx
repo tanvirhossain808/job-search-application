@@ -14,11 +14,13 @@ import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Error } from "../Error/Error";
 import { Example } from "../../components/Loading/Loading";
 export const SignUp = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   let from = location.state?.from?.pathname || "/";
 
   const [error2, setError] = useState({});
@@ -44,22 +46,13 @@ export const SignUp = () => {
     confirmPassword: "",
   });
   if (userGoogle) {
-    // console.log(from);
+    console.log(from);
     navigate(from, { replace: true });
     toast.success(`Log In Successfully`, {
       toastId: "success1",
     });
   }
-  useEffect(() => {
-    if (authUser) {
-      Swal.fire({
-        title: "Successfully login",
-        text: "press ok to proceed!",
-        icon: "success",
-      });
-      naviGate("/");
-    }
-  }, [authUser]);
+
   useEffect(() => {
     setError(authError || errorSign);
   }, [authError || errorSign]);
@@ -108,8 +101,15 @@ export const SignUp = () => {
     }
     //
   };
-  const handleSignWithGoogle = () => {
-    signInWithGoogle();
+  if (authUser) {
+    console.log(from);
+    navigate(from, { replace: true });
+    toast.success(`Log In Successfully`, {
+      toastId: "success1",
+    });
+  }
+  const handleSignWithGoogle = async () => {
+    await signInWithGoogle();
   };
   const handleSignWithGitHub = () => {
     signInWithGithub();

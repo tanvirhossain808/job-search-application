@@ -36,7 +36,7 @@ export const Navbar = () => {
               <NavLink to="contact">CONTACT</NavLink>
             </li>
             <li>
-              <NavLink to="appliedJob">APPLIED</NavLink>
+              <NavLink to="appliedJob">Applied</NavLink>
             </li>
             <li>
               <NavLink to="addNewJob">POST</NavLink>
