@@ -35,7 +35,7 @@ export const Jobs = () => {
     e.stopPropagation();
     setEditId(id);
   };
-  console.log(jobsPost);
+  // console.log(jobsPost);
   return (
     <>
       <div>{/* <ScrollToTop></ScrollToTop> */}</div>

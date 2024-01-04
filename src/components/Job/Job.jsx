@@ -54,15 +54,14 @@ export const Job = ({
   // const handleEdit = () => {};
   const delParticularJob = async (e) => {
     e.stopPropagation();
-    const res = await axios({
+    const res = axios({
       method: "delete",
       url: `http://localhost:9000/jobs/${id}`,
       data: {
         ...job,
       },
     });
-    +setUpdatePost(res);
-    console.log("hey");
+    setUpdatePost(res);
     toast.warn("Delete the jos post !", {
       position: toast.POSITION.TOP_RIGHT,
     });
