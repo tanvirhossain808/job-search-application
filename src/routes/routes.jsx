@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { FavouriteJobs } from "../pages/FavouriteJobs/FavouriteJobs";
 import { ParticularJobPageInfo } from "../pages/ParticularJobaInfo/ParticularJobInfo";
+import { NotFound } from "../pages/NotFound/NotFound";
 
 export const routes = createBrowserRouter([
   {
@@ -50,5 +51,9 @@ export const routes = createBrowserRouter([
         element: <Contact></Contact>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
   },
 ]);
