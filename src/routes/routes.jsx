@@ -11,6 +11,7 @@ import { FavouriteJobs } from "../pages/FavouriteJobs/FavouriteJobs";
 import { ParticularJobPageInfo } from "../pages/ParticularJobaInfo/ParticularJobInfo";
 import { NotFound } from "../pages/NotFound/NotFound";
 import { Error } from "../pages/Error/Error";
+import { AppliedJobs } from "../pages/AppliedJobs/AppliesJobs";
 
 export const routes = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const routes = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "appliedJob",
+        element: <AppliedJobs></AppliedJobs>,
       },
       {
         path: "addNewJob",

@@ -1,0 +1,12 @@
+.appliedJobs {
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+.appliedJobsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 30px;
+}
+.appliedJobHeader {
+  text-align: center;
+}

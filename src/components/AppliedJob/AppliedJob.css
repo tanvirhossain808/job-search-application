@@ -1,0 +1,17 @@
+.isApplied {
+  text-align: center;
+  background-color: orange;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+}
+.close {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.allJobs {
+  margin-top: 20px;
+  border-radius: 20px;
+}

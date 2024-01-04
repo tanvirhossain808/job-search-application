@@ -36,6 +36,12 @@ export const Navbar = () => {
               <NavLink to="contact">CONTACT</NavLink>
             </li>
             <li>
+              <NavLink to="appliedJob">APPLIED</NavLink>
+            </li>
+            <li>
+              <NavLink to="addNewJob">POST</NavLink>
+            </li>
+            <li>
               <NavLink to="favorite">FAVORITE</NavLink>
             </li>
             <li>
@@ -47,9 +53,6 @@ export const Navbar = () => {
                 <NavLink to="signup">SIGN UP</NavLink>
               )}
             </li>
-            {/* <li>
-              <NavLink to="SIGNIN">SIGNIN</NavLink>
-            </li> */}
             {user ? (
               <li
                 onClick={() => {

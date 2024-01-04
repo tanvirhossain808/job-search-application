@@ -21,17 +21,40 @@ export const Job = ({
     salary,
     favourite,
     position,
+    applied,
   },
   job,
   setUpdatePost,
   handleEditJobs,
 }) => {
+  const handleApply = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (applied) {
+      return toast.warn(
+        "You can not modify after you once applied for the job !",
+        {
+          position: toast.POSITION.TOP_RIGHT,
+        }
+      );
+    }
+    const res = constAddToFav(id, job, applied);
+    console.log(applied, "applied") + setUpdatePost(res);
+    !applied
+      ? toast.success("Added as favourite !", {
+          position: toast.POSITION.TOP_RIGHT,
+        })
+      : toast.info(" Removed from favourite!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+  };
+
   const naviGate = useNavigate();
   const hadleNavigateToSiglePage = () => {
     naviGate(`${id}`);
   };
   const handleAddToFavourite = (e) => {
-    console.log(e);
+    e.preventDefault();
     e.stopPropagation();
     const res = constAddToFav(id, job, favourite);
     // const res = await axios({
@@ -111,7 +134,12 @@ export const Job = ({
         <div className="nowJobApply-salary">
           <h4>{salary}</h4>
           <Link>
-            <h4 className="newJobSalary">Apply now</h4>
+            <h4
+              className={`newJobSalary ${applied ? "appiedDisable" : ""}`}
+              onClick={(e) => handleApply(e)}
+            >
+              {applied ? "Applied" : "Apply now"}
+            </h4>
           </Link>
         </div>
         <div className="delJob">
