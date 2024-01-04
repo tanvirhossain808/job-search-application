@@ -19,9 +19,9 @@ export const Home = () => {
 
       <div className="fiveLatesJobsStyle">
         {jobsPost
-          .reverse()
-          .filter((job) => jobsPost.length - 9 < job.id)
-          .map((job) => (
+          ?.reverse()
+          ?.filter((job) => jobsPost.length - 5 < job.id)
+          ?.map((job) => (
             <FiveLatesJobs key={job.id} job={job}></FiveLatesJobs>
           ))}
       </div>

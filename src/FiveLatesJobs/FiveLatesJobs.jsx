@@ -36,7 +36,7 @@ export const FiveLatesJobs = ({
     //     favourite: !favourite,
     //   },
     // });
-    +setUpdatePost(res);
+    setUpdatePost(res);
     !favourite
       ? toast.success("Added as favourite !", {
           position: toast.POSITION.TOP_RIGHT,
