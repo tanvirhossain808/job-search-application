@@ -12,6 +12,7 @@ import { ParticularJobPageInfo } from "../pages/ParticularJobaInfo/ParticularJob
 import { NotFound } from "../pages/NotFound/NotFound";
 import { Error } from "../pages/Error/Error";
 import { AppliedJobs } from "../pages/AppliedJobs/AppliesJobs";
+import PrivateRoutes from "./PrivateRoute/PrivateRoutes";
 
 export const routes = createBrowserRouter([
   {
@@ -45,11 +46,19 @@ export const routes = createBrowserRouter([
       },
       {
         path: "appliedJob",
-        element: <AppliedJobs></AppliedJobs>,
+        element: (
+          <PrivateRoutes>
+            <AppliedJobs></AppliedJobs>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "addNewJob",
-        element: <AddNewJob></AddNewJob>,
+        element: (
+          <PrivateRoutes>
+            <AddNewJob></AddNewJob>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/contact",

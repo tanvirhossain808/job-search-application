@@ -18,6 +18,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Error } from "../Error/Error";
 import { Example } from "../../components/Loading/Loading";
 export const SignUp = () => {
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
+
   const [error2, setError] = useState({});
   const [signInWithEmailAndPassword, userSignIn, loadingSign, errorSign] =
     useSignInWithEmailAndPassword(auth);
@@ -40,6 +43,13 @@ export const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+  if (userGoogle) {
+    // console.log(from);
+    navigate(from, { replace: true });
+    toast.success(`Log In Successfully`, {
+      toastId: "success1",
+    });
+  }
   useEffect(() => {
     if (authUser) {
       Swal.fire({
