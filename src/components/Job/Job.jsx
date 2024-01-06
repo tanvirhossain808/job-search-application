@@ -53,31 +53,62 @@ export const Job = ({
   const hadleNavigateToSiglePage = () => {
     naviGate(`${id}`);
   };
+  // const handleAddToFavourite = async (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   const res = constAddToFav(id, job, favourite, "favourite")
+  //     .then(setUpdatePost(res))
+  //     .then(
+  //       !favourite
+  //         ? toast.success("Added as favourite !", {
+  //             position: toast.POSITION.TOP_RIGHT,
+  //           })
+  //         : toast.info(" Removed from favourite!", {
+  //             position: toast.POSITION.TOP_RIGHT,
+  //           })
+  //     );
+  //   // const res = await axios({
+  //   //   method: "put",
+  //   //   url: `http://localhost:9000/jobs/${id}`,
+  //   //   data: {
+  //   //     ...job,
+  //   //     favourite: !favourite,
+  //   //   },
+  //   // });
+  //   console.log(res.status);
+
+  //   // if (res) {
+  //   //   setUpdatePost(res);
+
+  //   // }
+  // };
+  // Your main file // Adjust the import path based on your actual file structure
+
   const handleAddToFavourite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // const res = constAddToFav(id, job, favourite, "favourite");
-    const res = await axios({
-      method: "put",
-      url: `http://localhost:9000/jobs/${id}`,
-      data: {
-        ...job,
-        favourite: !favourite,
-      },
-    });
-    console.log(res.status);
 
-    if (res) {
+    try {
+      const res = await constAddToFav(id, job, favourite, "favourite");
       setUpdatePost(res);
-      return !favourite
-        ? toast.success("Added as favourite !", {
-            position: toast.POSITION.TOP_RIGHT,
-          })
-        : toast.info(" Removed from favourite!", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+
+      if (!favourite) {
+        toast.success("Added as favourite !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        toast.info("Removed from favourite!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+
+      console.log(res.status);
+    } catch (error) {
+      // Handle errors here
+      console.error("Error in handleAddToFavourite:", error);
     }
   };
+
   // const handleEdit = () => {};
   const delParticularJob = async (e) => {
     e.stopPropagation();
