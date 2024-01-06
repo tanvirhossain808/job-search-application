@@ -27,23 +27,24 @@ export const FiveLatesJobs = ({
   const handleAddToFavourite = async (e) => {
     console.log(e);
     e.stopPropagation();
-    const res = constAddToFav(id, job, favourite, "favourite");
-    // const res = await axios({
-    //   method: "put",
-    //   url: `http://localhost:9000/jobs/${id}`,
-    //   data: {
-    //     ...job,
-    //     favourite: !favourite,
-    //   },
-    // });
-    setUpdatePost(res);
-    !favourite
-      ? toast.success("Added as favourite !", {
-          position: toast.POSITION.TOP_RIGHT,
-        })
-      : toast.info(" Removed from favourite!", {
+    try {
+      const res = await constAddToFav(id, job, favourite, "favourite");
+      setUpdatePost(res);
+
+      if (!favourite) {
+        toast.success("Added as favourite !", {
           position: toast.POSITION.TOP_RIGHT,
         });
+      } else {
+        toast.info("Removed from favourite!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+
+      console.log(res.status);
+    } catch (error) {
+      console.error("Error in handleAddToFavourite:", error);
+    }
   };
   const handleNavigateToJobPage = () => {
     navigate(`jobs/${id}`);

@@ -104,7 +104,6 @@ export const Job = ({
 
       console.log(res.status);
     } catch (error) {
-      // Handle errors here
       console.error("Error in handleAddToFavourite:", error);
     }
   };
