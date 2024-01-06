@@ -48,6 +48,7 @@ const EditModal = ({ edit: { editId, setEditId } }) => {
       },
     });
     setUpdatePost(res);
+    // console.log(res,'res')
     toast.success("Successfully updated !", {
       position: toast.POSITION.TOP_RIGHT,
     });

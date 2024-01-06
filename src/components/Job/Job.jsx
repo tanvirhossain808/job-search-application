@@ -56,7 +56,7 @@ export const Job = ({
   const handleAddToFavourite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const res = await constAddToFav(id, job, favourite, "favourite");
+    const res = constAddToFav(id, job, favourite, "favourite");
     // const res = await axios({
     //   method: "put",
     //   url: `http://localhost:9000/jobs/${id}`,
@@ -65,14 +65,17 @@ export const Job = ({
     //     favourite: !favourite,
     //   },
     // });
+    console.log(res.status);
     await setUpdatePost(res);
-    !favourite
-      ? toast.success("Added as favourite !", {
-          position: toast.POSITION.TOP_RIGHT,
-        })
-      : toast.info(" Removed from favourite!", {
-          position: toast.POSITION.TOP_RIGHT,
-        });
+    if (res) {
+      !favourite
+        ? toast.success("Added as favourite !", {
+            position: toast.POSITION.TOP_RIGHT,
+          })
+        : toast.info(" Removed from favourite!", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+    }
   };
   // const handleEdit = () => {};
   const delParticularJob = async (e) => {
