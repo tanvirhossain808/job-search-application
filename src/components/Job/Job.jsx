@@ -53,10 +53,10 @@ export const Job = ({
   const hadleNavigateToSiglePage = () => {
     naviGate(`${id}`);
   };
-  const handleAddToFavourite = (e) => {
+  const handleAddToFavourite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const res = constAddToFav(id, job, favourite, "favourite");
+    const res = await constAddToFav(id, job, favourite, "favourite");
     // const res = await axios({
     //   method: "put",
     //   url: `http://localhost:9000/jobs/${id}`,
@@ -65,7 +65,7 @@ export const Job = ({
     //     favourite: !favourite,
     //   },
     // });
-    +setUpdatePost(res);
+    await setUpdatePost(res);
     !favourite
       ? toast.success("Added as favourite !", {
           position: toast.POSITION.TOP_RIGHT,
