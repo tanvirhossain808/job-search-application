@@ -56,15 +56,15 @@ export const Job = ({
   const handleAddToFavourite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const res = constAddToFav(id, job, favourite, "favourite");
-    // const res = await axios({
-    //   method: "put",
-    //   url: `http://localhost:9000/jobs/${id}`,
-    //   data: {
-    //     ...job,
-    //     favourite: !favourite,
-    //   },
-    // });
+    // const res = constAddToFav(id, job, favourite, "favourite");
+    const res = await axios({
+      method: "put",
+      url: `http://localhost:9000/jobs/${id}`,
+      data: {
+        ...job,
+        favourite: !favourite,
+      },
+    });
     console.log(res.status);
 
     if (res) {
