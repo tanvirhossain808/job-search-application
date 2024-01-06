@@ -66,9 +66,10 @@ export const Job = ({
     //   },
     // });
     console.log(res.status);
-    await setUpdatePost(res);
+
     if (res) {
-      !favourite
+      setUpdatePost(res);
+      return !favourite
         ? toast.success("Added as favourite !", {
             position: toast.POSITION.TOP_RIGHT,
           })
