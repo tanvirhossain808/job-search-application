@@ -2,9 +2,9 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
 import { AiFillYoutube } from "react-icons/ai";
 import { MdOutgoingMail } from "react-icons/md";
+import { CiLinkedin } from "react-icons/ci";
 
 export const Footer = () => {
   return (

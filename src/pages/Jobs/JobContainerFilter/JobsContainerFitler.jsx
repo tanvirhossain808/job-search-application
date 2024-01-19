@@ -4,10 +4,10 @@ export const JObsContainerFilter = ({ filter, filterBy }) => {
     <>
       <div>
         <div>
-            <span>
-                <h2></h2>
-            </span>
-            <p>icon</p>
+          <span>
+            <h2></h2>
+          </span>
+          {/* <p>icon</p> */}
         </div>
         <div></div>
       </div>
