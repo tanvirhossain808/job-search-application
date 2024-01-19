@@ -32,7 +32,7 @@ export const Contact = () => {
               <input
                 type="text"
                 name="phone"
-                placeholder="Type your phone number"
+                placeholder="Type your company name"
               />
             </span>
             <span className="textArea">
