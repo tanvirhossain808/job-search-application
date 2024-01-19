@@ -26,7 +26,7 @@ The project relies on a JSON server to manage job data. Start the JSON server us
 
 bash
 Copy code
-json-server --watch https://my-json-server.typicode.com/tanvirhossain808/fake-json-server --port 5000
+json-server --watch https://my-json-server.typicode.com/tanvirhossain808/fake-json-server --port 9000
 Private Routes
 Certain routes in the application are private and require authentication. Make sure to implement authentication before deploying your application.
 Features
