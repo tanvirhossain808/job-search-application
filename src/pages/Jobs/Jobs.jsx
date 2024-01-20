@@ -52,7 +52,7 @@ export const Jobs = () => {
       setTimeout(async () => {
         const res = await axios({
           method: "put",
-          url: `http://localhost:9000/jobs/${data.id}`,
+          url: `https://jsonjob.onrender.com/jobs/${data.id}`,
           data: {
             ...data,
             favourite: false,

@@ -41,7 +41,7 @@ const EditModal = ({ edit: { editId, setEditId } }) => {
 
     const res = await axios({
       method: "put",
-      url: `http://localhost:9000/jobs/${+editId}`,
+      url: `https://jsonjob.onrender.com/jobs/${+editId}`,
       data: {
         ...editDetils,
         ...doEdit,

@@ -113,7 +113,7 @@ export const Job = ({
     e.stopPropagation();
     const res = await axios({
       method: "delete",
-      url: `http://localhost:9000/jobs/${id}`,
+      url: `https://jsonjob.onrender.com/jobs/jobs/${id}`,
       data: {
         ...job,
       },

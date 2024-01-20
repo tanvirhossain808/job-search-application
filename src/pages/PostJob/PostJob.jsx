@@ -26,7 +26,7 @@ export const PostJob = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:9000/jobs", jobPost)
+      .post("https://jsonjob.onrender.com/jobs/jobs", jobPost)
       .then(function (response) {
         setSuceesPost(response);
         console.log(response);

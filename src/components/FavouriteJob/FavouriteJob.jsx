@@ -26,7 +26,7 @@ export const FavouriteJob = ({
   const handleAddToFavourite = async () => {
     const res = await axios({
       method: "put",
-      url: `http://localhost:9000/jobs/${id}`,
+      url: `https://jsonjob.onrender.com/jobs/${id}`,
       data: {
         ...favJob,
         favourite: !favourite,
