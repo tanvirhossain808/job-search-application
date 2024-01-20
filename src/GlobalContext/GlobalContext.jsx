@@ -9,7 +9,7 @@ export const GlobalContext = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:9000/jobs");
+        const response = await fetch("https://jsonjob.onrender.com/jobs");
         const data = await response.json();
         setJobPost(data);
       } catch (error) {
